@@ -17,18 +17,16 @@ Constraints:
 * -109 <= target <= 109
 Only one valid answer exists."""
 
+
+
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        seen = {}
-        for i, num in enumerate(nums):
-            if target - num in seen:
-                return [seen[target - num], i]
+        seen = {} # create a dictionary called "seen"
+        diff = target - num # create a variable called diff 
+        for i, num in enumerate(nums): # looping through the indices and elements of the list
+            if diff in seen: # checking a conditional if diff is in the dictionary 1. if diff is not in the dict seen, add that diff to that dict seen , 2. if diff is in dict continue as it is
+                return [seen[diff], i] # return a list as expected
             seen[num] = i
-
         return []
+        
     
-solution = Solution()   
-nums = [3,2,4]
-target = 6    
-indices = solution.twoSum(nums, target)
-print(indices)
